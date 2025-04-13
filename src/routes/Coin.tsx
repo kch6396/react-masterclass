@@ -4,6 +4,7 @@ import {
   PathMatch,
   useLocation,
   useMatch,
+  useOutletContext,
   useParams,
 } from "react-router-dom";
 import styled from "styled-components";
@@ -140,8 +141,14 @@ interface PriceData {
   };
 }
 
+interface ICoinsProps {
+  isDark: boolean;
+}
+
 const Coin = () => {
   const { coinId } = useParams();
+  const { isDark } = useOutletContext<ICoinsProps>();
+
   const { state } = useLocation() as RouterState;
   const priceMatch: PathMatch<"coinId"> | null = useMatch("/:coinId/price");
   const chartMatch: PathMatch<"coinId"> | null = useMatch("/:coinId/chart");
@@ -154,7 +161,7 @@ const Coin = () => {
   const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>({
     queryKey: ["tickers", coinId],
     queryFn: () => fetchCoinTickers(coinId as string),
-    refetchInterval: 5000,
+    // refetchInterval: 5000,
   });
 
   const loading = infoLoading || tickersLoading;
@@ -208,7 +215,7 @@ const Coin = () => {
               <Link to={`/${coinId}/price`}>Price</Link>
             </Tab>
           </Tabs>
-          <Outlet context={{ coinId }} />
+          <Outlet context={{ isDark, coinId }} />
         </>
       )}
     </Container>
