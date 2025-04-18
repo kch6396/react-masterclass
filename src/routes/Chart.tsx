@@ -34,12 +34,12 @@ const Chart = () => {
     queryFn: () => fetchCoinHistory(coinId),
     refetchInterval: 10000,
   });
-  console.log(data);
+
   return (
     <div>
       {isLoading ? (
         "Loading chart..."
-      ) : data?.length === 0 ? (
+      ) : Array.isArray(data) ? (
         <ApexChart
           type="candlestick"
           series={[
