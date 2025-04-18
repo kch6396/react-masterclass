@@ -57,13 +57,13 @@ const Price = () => {
   return (
     <>
       <Ul>
-        <Li> market_cap: {USD.market_cap}</Li>
-        <Li> market_cap_change_24h: {USD.market_cap_change_24h}</Li>
+        <Li> market_cap: {USD?.market_cap}</Li>
+        <Li> market_cap_change_24h: {USD?.market_cap_change_24h}</Li>
 
-        <Li> percent_from_price_ath: {USD.percent_from_price_ath} </Li>
-        <Li> price: {USD.price}</Li>
-        <Li> volume_24h: {USD.volume_24h}</Li>
-        <Li> volume_24h_change_24h: {USD.volume_24h_change_24h}</Li>
+        <Li> percent_from_price_ath: {USD?.percent_from_price_ath} </Li>
+        <Li> price: {USD?.price}</Li>
+        <Li> volume_24h: {USD?.volume_24h}</Li>
+        <Li> volume_24h_change_24h: {USD?.volume_24h_change_24h}</Li>
 
         <H2>PERCENT_CHANGE</H2>
         <Select

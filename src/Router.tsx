@@ -7,7 +7,7 @@ import Chart from "./routes/Chart";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/react-masterclass",
     element: <App />,
     children: [
       {
