@@ -39,7 +39,7 @@ const Chart = () => {
     <div>
       {isLoading ? (
         "Loading chart..."
-      ) : Array.isArray(data) ? (
+      ) : Array.isArray(data) && data.length > 0 ? (
         <ApexChart
           type="candlestick"
           series={[
