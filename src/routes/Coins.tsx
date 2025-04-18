@@ -77,7 +77,6 @@ const Coins = () => {
       </Helmet>
       <Header>
         <Title>코인</Title>
-        <button onClick={() => {}}>Toggle Dark Mode</button>
       </Header>
       {isLoading ? (
         <Loader>Loading...</Loader>

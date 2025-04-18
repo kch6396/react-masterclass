@@ -4,11 +4,11 @@ export const darkTheme: DefaultTheme = {
   bgColor: "#2f3640",
   textColor: "black",
   accentColor: "#9c88ff",
-  cardBgColor: "white",
+  overviewTextColor: "white",
 };
 export const lightTheme: DefaultTheme = {
   bgColor: "whitesmoke",
-  textColor: "white",
+  textColor: "#2f3640",
   accentColor: "#9c88ff",
-  cardBgColor: "transparent",
+  overviewTextColor: "#2f3640",
 };
