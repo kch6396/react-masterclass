@@ -4,6 +4,11 @@ import { fetchCoinHistory } from "../api";
 import ApexChart from "react-apexcharts";
 import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "../atoms";
+import styled from "styled-components";
+
+const Error = styled.span`
+  color: ${(props) => props.theme.overviewTextColor};
+`;
 
 interface IHistorical {
   time_open: string;
@@ -29,12 +34,12 @@ const Chart = () => {
     queryFn: () => fetchCoinHistory(coinId),
     refetchInterval: 10000,
   });
-
+  console.log(data);
   return (
     <div>
       {isLoading ? (
         "Loading chart..."
-      ) : (
+      ) : data?.length === 0 ? (
         <ApexChart
           type="candlestick"
           series={[
@@ -73,6 +78,8 @@ const Chart = () => {
             },
           }}
         />
+      ) : (
+        <Error>No Data</Error>
       )}
     </div>
   );

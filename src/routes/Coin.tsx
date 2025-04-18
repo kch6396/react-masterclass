@@ -137,7 +137,7 @@ const Coin = () => {
         </title>
       </Helmet>
       <Header>
-        <Button onClick={() => navigate("/")}>HOME</Button>
+        <Button onClick={() => navigate("/react-masterclass")}>HOME</Button>
         <Title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>
@@ -173,10 +173,10 @@ const Coin = () => {
           </Overview>
           <Tabs>
             <Tab $isActive={chartMatch !== null}>
-              <Link to={`/${coinId}/chart`}>Chart</Link>
+              <Link to={`chart`}>Chart</Link>
             </Tab>
             <Tab $isActive={priceMatch !== null}>
-              <Link to={`/${coinId}/price`}>Price</Link>
+              <Link to={`price`}>Price</Link>
             </Tab>
           </Tabs>
           <Outlet context={{ coinId, tickersData }} />
