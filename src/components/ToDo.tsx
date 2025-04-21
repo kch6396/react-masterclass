@@ -1,9 +1,11 @@
 import { MouseEvent } from "react";
-import { Categories, IToDo, toDoState } from "../atoms";
-import { useSetRecoilState } from "recoil";
+import { categoryListState, IToDo, toDoState } from "../atoms";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
-const ToDo = ({ text, category, id }: IToDo) => {
+const ToDo = ({ text, category: choiceCategory, id }: IToDo) => {
   const setToDos = useSetRecoilState(toDoState);
+  const categoryList = useRecoilValue(categoryListState);
+
   const onClick = (event: MouseEvent<HTMLButtonElement>) => {
     const {
       currentTarget: { name },
@@ -18,24 +20,31 @@ const ToDo = ({ text, category, id }: IToDo) => {
       ];
     });
   };
+
   return (
     <li>
       <span>{text}</span>
-      {category !== Categories.DOING && (
-        <button name={Categories.DOING} onClick={onClick}>
-          Doing
-        </button>
+      {categoryList.map(
+        (category: string) =>
+          category !== choiceCategory && (
+            <button key={category} name={category} onClick={onClick}>
+              {category}
+            </button>
+          )
       )}
-      {category !== Categories.TO_DO && (
-        <button name={Categories.TO_DO} onClick={onClick}>
-          To Do
-        </button>
-      )}
-      {category !== Categories.DONE && (
-        <button name={Categories.DONE} onClick={onClick}>
-          Done
-        </button>
-      )}
+      <button
+        onClick={() => {
+          setToDos((oldTodos) => oldTodos.filter((toDo) => toDo.id !== id));
+        }}
+        style={{
+          marginLeft: "10px",
+          backgroundColor: "red",
+          color: "white",
+          border: "none",
+        }}
+      >
+        Delete
+      </button>
     </li>
   );
 };
