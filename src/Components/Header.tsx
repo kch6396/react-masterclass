@@ -10,7 +10,7 @@ const Nav = styled(motion.nav)`
   position: fixed;
   width: 100%;
   top: 0;
-  background-color: black;
+
   font-size: 14px;
   padding: 20px 60px;
   color: white;
@@ -64,7 +64,7 @@ const Circle = styled(motion.span)`
   position: absolute;
   width: 5px;
   height: 5px;
-  border-radius: 5px;
+  border-radius: 2.5px;
   bottom: -5px;
   left: 0;
   right: 0;
@@ -168,7 +168,7 @@ const Header = () => {
         <Search>
           <motion.svg
             onClick={toggleSearch}
-            animate={{ x: searchOpen ? -180 : 0 }}
+            animate={{ x: searchOpen ? -185 : 0 }}
             transition={{ type: "linear" }}
             fill="currentColor"
             viewBox="0 0 20 20"
