@@ -4,6 +4,7 @@ import {
   Categories,
   categoryListState,
   categoryState,
+  defaultCategories,
   toDoSelector,
   toDoState,
 } from "../atoms";
@@ -20,7 +21,7 @@ const ToDoList = () => {
   const [category, setCategory] = useRecoilState(categoryState);
   const [categoryList, setCategoryList] = useRecoilState(categoryListState);
   const setToDos = useSetRecoilState(toDoState);
-
+  console.log(categoryList);
   const {
     register,
     setValue,
@@ -49,23 +50,27 @@ const ToDoList = () => {
             </option>
           ))}
         </select>
-        <button
-          onClick={() => {
-            setCategoryList((prev) => prev.filter((item) => item !== category));
-            setToDos((prev) =>
-              prev.filter((toDo) => toDo.category !== category)
-            );
-            setCategory(Categories.TO_DO);
-          }}
-          style={{
-            marginRight: "10px",
-            backgroundColor: "red",
-            color: "white",
-            border: "none",
-          }}
-        >
-          Delete
-        </button>
+        {!defaultCategories.includes(category as Categories) && (
+          <button
+            onClick={() => {
+              setCategoryList((prev) =>
+                prev.filter((item) => item !== category)
+              );
+              setToDos((prev) =>
+                prev.filter((toDo) => toDo.category !== category)
+              );
+              setCategory(Categories.TO_DO);
+            }}
+            style={{
+              marginRight: "10px",
+              backgroundColor: "red",
+              color: "white",
+              border: "none",
+            }}
+          >
+            Delete
+          </button>
+        )}
         <form onSubmit={handleSubmit(onValid)}>
           <input
             {...register("category", {

@@ -18,9 +18,15 @@ const { persistAtom } = recoilPersist({
   storage: localStorage,
 });
 
+export const defaultCategories = [
+  Categories.TO_DO,
+  Categories.DOING,
+  Categories.DONE,
+];
+
 export const categoryListState = atom<string[]>({
   key: "categoryList",
-  default: [Categories.TO_DO, Categories.DOING, Categories.DONE],
+  default: defaultCategories,
   effects: [persistAtom],
 });
 
