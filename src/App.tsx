@@ -107,7 +107,7 @@ function App() {
         onClick={() => setPosition((prev) => (prev === "2" ? "3" : "2"))}
         variants={buttonVariants}
         initial="initial"
-        animate={position === "2" ? "click" : "initial"}
+        animate={position === "3" ? "click" : "initial"}
       >
         Switch
       </Button>
