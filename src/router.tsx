@@ -6,7 +6,7 @@ import Home from "./Routes/Home";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/react-masterclass/netflix",
     element: <App />,
     children: [
       {
