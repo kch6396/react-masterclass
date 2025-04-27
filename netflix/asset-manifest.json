@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/react-masterclass/netflix/static/js/main.ebc283f0.js",
+    "index.html": "/react-masterclass/netflix/index.html",
+    "main.ebc283f0.js.map": "/react-masterclass/netflix/static/js/main.ebc283f0.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.ebc283f0.js"
+  ]
+}
