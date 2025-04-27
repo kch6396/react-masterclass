@@ -207,7 +207,9 @@ interface ISProps {
 
 const TvSlider = ({ data, offset, title, rank, category, type }: ISProps) => {
   const navigate = useNavigate();
-  const bigMovieMatch = useMatch(`/${type}/${category}/:${type}Id`);
+  const bigMovieMatch = useMatch(
+    `/react-masterclass/netflix/${type}/${category}/:${type}Id`
+  );
   const { scrollY } = useScroll();
 
   const [index, setIndex] = useState(0);
@@ -235,11 +237,13 @@ const TvSlider = ({ data, offset, title, rank, category, type }: ISProps) => {
   };
 
   const onBoxClicked = (movieId: number) => {
-    navigate(`/${type}/${category}/${movieId}`);
+    navigate(`/react-masterclass/netflix/${type}/${category}/${movieId}`);
   };
 
   const onOverlayClick = () => {
-    type === "movie" ? navigate("/") : navigate(`/tv`);
+    type === "movie"
+      ? navigate("/react-masterclass/netflix")
+      : navigate("/react-masterclass/netflix/tv");
   };
 
   const clickedMovie =

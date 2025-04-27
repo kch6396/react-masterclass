@@ -114,8 +114,8 @@ interface IForm {
 const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
 
-  const homeMatch = useMatch("/");
-  const tvMatch = useMatch("/tv");
+  const homeMatch = useMatch("/react-masterclass/netflix");
+  const tvMatch = useMatch("/react-masterclass/netflix/tv");
   const inputAnimation = useAnimation();
   const navAnimation = useAnimation();
   const { scrollY } = useScroll();
@@ -144,7 +144,7 @@ const Header = () => {
   const { register, handleSubmit } = useForm<IForm>();
 
   const onValid = (data: IForm) => {
-    navigate(`/search?keyword=${data.keyword}`);
+    navigate(`/react-masterclass/netflix/search?keyword=${data.keyword}`);
   };
 
   return (
@@ -163,13 +163,13 @@ const Header = () => {
         </Logo>
         <Items>
           <Item>
-            <Link to="/">
+            <Link to="/react-masterclass/netflix">
               Home
               {homeMatch && <Circle layoutId="circle" />}
             </Link>
           </Item>
           <Item>
-            <Link to="/tv">
+            <Link to="/react-masterclass/netflix/tv">
               Tv Shows
               {tvMatch && <Circle layoutId="circle" />}
             </Link>
